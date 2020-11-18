@@ -16,7 +16,8 @@ Create a remote, empty folder/repository on Github.
 3) Click 'Create Repository'. !!!!!The next screen you see will be important, so don't close it.!!!!!
 
 4) type -> git remote add origin /path/to/origin.git
-
+	If reusing a repository already used and message  = fatal: remote origin already exists.
+	THEN git remote rm origin
 5) git add .
 
 6) git commit -m "initial commit"
@@ -25,4 +26,4 @@ Create a remote, empty folder/repository on Github.
 	$ git config --global user.email "nalanzo2001@gmail.com"
 	$ git config --global user.name "nalanzo2001"
 
-7) git push origin master
+7) git push origin main
