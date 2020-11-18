@@ -1,0 +1,55 @@
+New C# Features
+
+c# 6
+
+1) String interpolation - Placing a <$> before a string allows for the  replacing of variables in the string with variable.ToString()
+
+static string Work()
+{
+	string first = "Newton";
+	string last = "Cuff";
+	string age = i.ToString();
+	return $"{firstname} {lastname} - {age}"; //<- String interpolation
+}
+
+2) Read-only auto-properties - Read-only auto-properties provide a more concise syntax to create immutable types. You declare the auto-property with only a get accessor. Trying to set FirstName or LastName in any other method than the constructor generates a CS0200 compilation error:
+
+public class Student
+{
+	public string FirstName { get; } <- Read-only auto-property
+	public string LastName { get;  } <- Read-only auto-property
+
+	public Student(string firstName, string lastName)
+	{
+		if (IsNullOrWhiteSpace(lastName))
+			throw new ArgumentException(message: "Cannot be blank", paramName: nameof(lastName));
+		FirstName = firstName;
+		LastName = lastName;
+	}
+}
+
+C# 7
+
+1) Local Function declaration
+
+public string MethodWithLocalFunction()
+{
+  string first = "Hiccuo";
+  string last = "Mauritius";
+  return LocalFunction(first, last);
+  static string LocalFunction(string firstname, string lastname) => firstname + " - " + lastname; <- Local Function (Static, can be non static)
+}
+
+2) Using declaration
+
+void ReadFile(string path)
+{
+  using FileStream fs = File.OpenRead(path); // using declaration <- Using declaration
+  byte[] b = new byte[1024];
+  UTF8Encoding temp = new UTF8Encoding(true);
+  while (fs.Read(b,0,b.Length) > 0)
+  {
+    Console.WriteLine(temp.GetString(b));
+  }
+  // fs is disposed here
+}

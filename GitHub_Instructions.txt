@@ -1,0 +1,21 @@
+Reference: https://gist.github.com/mindplace/b4b094157d7a3be6afd2c96370d39fad
+
+1) Using your terminal/command line, get inside the folder where your project files are kept: cd /path/to/my/codebase
+2) Check if git is already initialized: git status
+
+f you get this error message: fatal: Not a git repository (or any of the parent directories): .git, that means the folder you are currently in is not being tracked by git. In that case, initialize git inside your project folder by typing git init
+
+Create a remote, empty folder/repository on Github.
+1) Login to your Github account.
+
+2) At the top right of any Github page, you should see a '+' icon. Click that, then select 'New Repository'.
+
+3) Click 'Create Repository'. !!!!!The next screen you see will be important, so don't close it.!!!!!
+
+4) type -> git remote add origin /path/to/origin.git
+
+5) git add .
+
+6) git commit -m "initial commit"
+
+7) git push origin master

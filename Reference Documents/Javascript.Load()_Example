@@ -1,0 +1,17 @@
+function load() {
+    $.ajax({
+        type: "POST",
+		//webservice the data is coming from
+        url: "http://localhost:51097/Service1.asmx/HelloWorld",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: {
+            id: 1,
+            name: 'Amit',
+            age: 97
+        },
+        success: function (msg) {
+            alert("ok");
+        }
+    });
+}
