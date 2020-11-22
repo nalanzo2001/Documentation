@@ -6,8 +6,21 @@ Reference:
 *https://code.visualstudio.com/docs/containers/overview#_installation
 ___________________________________________________________________________________________________________________________________________________________________________
 
+Django settings reference: https://docs.djangoproject.com/en/2.1/topics/settings/#envvar-DJANGO_SETTINGS_MODULE
+___________________________________________________________________________________________________________________________________________________________________________
 
-A) Setup Environment
+A) Setup application to work with both prod and dev settings
+___________________________________________________________________________________________________________________________________________________________________________
+
+1) create folder in manin app called settings
+2) create a python file (.py) named prod.py and dev.py
+3) rename settings.py to base.py
+4) paste this in prod.pyc
+
+set DJANGO_SETTINGS_MODULE=mysite.settings.dev
+set DJANGO_SETTINGS_MODULE=mysite.settings.prod
+
+B) Setup Environment
 ___________________________________________________________________________________________________________________________________________________________________________
 
 1) In VS Code Terminal, run `python -m venv env` to create a virtual environment as described in the tutorial.
@@ -29,8 +42,8 @@ Or if you are using a unix-like OS you can run the following script (inside your
 --find . -path "*/migrations/*.pyc"  -delete
 2) Drop the current database, or delete the db.sqlite3 if it is your case.
 3) Create the initial migrations and generate the database schema:
---py manage.py makemigrations
---py manage.py migrate
+--python manage.py makemigrations
+--python manage.py migrate
 
 Scenario 2:
 You want to clear all the migration history but you want to keep the existing database.
@@ -48,7 +61,7 @@ You are good to go.
 Now you will need to clear the migration history app by app.
 
 First run the showmigrations command so we can keep track of what is going on:
---py manage.py showmigrations
+--python manage.py showmigrations
 Result:
 
 admin
@@ -73,7 +86,7 @@ sessions
  [X] 0001_initial
 
 Clear the migration history (please note that core is the name of my app):
---py manage.py migrate --fake core zero
+--python manage.py migrate --fake core zero
 The result will be something like this:
 
 Operations to perform:
@@ -85,7 +98,7 @@ Running migrations:
   Unapplying core.0001_initial... FAKED
   
 Now run the command showmigrations again:
---py manage.py showmigrations
+--python manage.py showmigrations
 Result:
 
 admin
@@ -121,7 +134,7 @@ find . -path "*/migrations/*.pyc"  -delete
 PS: The example above will remove all the migrations file inside your project.
 
 4) Run the showmigrations again:
---py manage.py showmigrations
+--python manage.py showmigrations
 Result:
 
 admin
@@ -144,7 +157,7 @@ sessions
  [X] 0001_initial
  
 5) Create the initial migrations
---py manage.py makemigrations
+--python manage.py makemigrations
 Result:
 
 Migrations for 'core':
@@ -153,7 +166,7 @@ Migrations for 'core':
 	
 6) Fake the initial migration
 In this case you won’t be able to apply the initial migration because the database table already exists. What we want to do is to fake this migration instead:
---py manage.py migrate --fake-initial
+--python manage.py migrate --fake-initial
 Result:
 
 Operations to perform:
@@ -163,7 +176,7 @@ Running migrations:
   Applying core.0001_initial... FAKED
   
 7) Run showmigrations again:
---py manage.py showmigrations
+--python manage.py showmigrations
 
 admin
  [X] 0001_initial
@@ -185,16 +198,16 @@ sessions
  [X] 0001_initial
 And we are all set up :-)
 
-C) SuperUser Reference: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site
+D) SuperUser Reference: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site
 ___________________________________________________________________________________________________________________________________________________________________________
 
-1) py manage.py createsuperuser
+1) python manage.py createsuperuser
 --Enter username
 --Enter email
 --Enter password
 --Enter password again
 
-D) Whitenoise - used to render static files while in production and dev (for consistency)
+E) Whitenoise - used to render static files while in production and dev (for consistency)
 *reference: http://whitenoise.evans.io/en/stable/
 
 1) Add: whitenoise to requirements.txt
@@ -207,7 +220,7 @@ D) Whitenoise - used to render static files while in production and dev (for con
 6) add: STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected') to prod settings file
 7) run: python manage.py collectstatic
 
-E) SQLite
+F) SQLite
 ___________________________________________________________________________________________________________________________________________________________________________
 
 1) install sqlite3 from: https://www.sqlite.org/download.html 
