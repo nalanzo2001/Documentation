@@ -1,0 +1,29 @@
+Build the dockerfile
+sudo docker build --tag nalanzo2001/newton:latest .
+
+Log into docker hub
+sudo docker login -u nalanzo2001 -p Saida<year><money>
+
+tag newly created image
+sudo docker tag newton nalanzo2001/newton
+
+create new container and run it (deletes on stopping)
+sudo docker run -it --rm -d -p 80:80 nalanzo2001/newton
+
+stop container - TODO find how to delete container when stopped
+sudo docker container stop <container name>
+
+push image to docker hub
+sudo docker push nalanzo2001/newton
+
+______________________________________________________________________
+KEY
+______________________________________________________________________
+
+-u username
+-p password
+-t tag image with name
+-it create bash shell in the container
+--rm remove the container when stopped
+-d run container in background
+-p port mapping
