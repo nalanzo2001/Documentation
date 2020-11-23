@@ -26,6 +26,8 @@ Create a remote, empty folder/repository on Github.
 5) git add .
 
 6) git commit -m "<message for commit>"
+OR
+6a) git commit -a (this opens a text file so notes can be added for commit)
 
 7) Login
 	$ git config --global user.email "nalanzo2001@gmail.com"

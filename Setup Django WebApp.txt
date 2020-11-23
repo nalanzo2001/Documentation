@@ -6,7 +6,9 @@ Reference:
 *https://code.visualstudio.com/docs/containers/overview#_installation
 ___________________________________________________________________________________________________________________________________________________________________________
 
-Django settings reference: https://docs.djangoproject.com/en/2.1/topics/settings/#envvar-DJANGO_SETTINGS_MODULE
+Django settings 
+references: https://docs.djangoproject.com/en/2.1/topics/settings/#envvar-DJANGO_SETTINGS_MODULE
+			https://github.com/MattSegal/django-deploy
 ___________________________________________________________________________________________________________________________________________________________________________
 
 A) Setup application to work with both prod and dev settings
