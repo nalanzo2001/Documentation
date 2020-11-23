@@ -32,3 +32,4 @@ sudo docker container ls -a - List all containers
 sudo docker rm $(sudo docker ps -a-q) - delete all containers
 sudo docker image prune -a - delete all images without linked container
 sudo docker image ls - list all images
+sudo docker stop $(sudo docker ps -a -q) - stop all containers
