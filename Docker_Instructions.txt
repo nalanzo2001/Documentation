@@ -27,3 +27,6 @@ ______________________________________________________________________
 --rm remove the container when stopped
 -d run container in background
 -p port mapping
+
+sudo docker container ls -a - List all containers
+sudo docker rm $(sudo docker ps -a-q) - delete all containers
