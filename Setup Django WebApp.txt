@@ -46,6 +46,7 @@ Or if you are using a unix-like OS you can run the following script (inside your
 3) Create the initial migrations and generate the database schema:
 --python manage.py makemigrations
 --python manage.py migrate
+--python manage.py collectstatic
 
 Scenario 2:
 You want to clear all the migration history but you want to keep the existing database.
