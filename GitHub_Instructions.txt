@@ -1,4 +1,5 @@
 Reference: https://gist.github.com/mindplace/b4b094157d7a3be6afd2c96370d39fad
+https://git-scm.com/docs/git-add
 
 Create and push new project to repository
 _______________________________________________________________________________________________________________________________________________________________
