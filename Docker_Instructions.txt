@@ -1,24 +1,27 @@
+DOCKER REFERENCES - https://docs.docker.com/engine/reference/builder/
+___________________________________________________________________________________________
+
 Build the dockerfile
-sudo docker build --tag nalanzo2001/newton:latest .
+sudo docker build --tag <image_name>:latest .
 
 Log into docker hub
 sudo docker login -u nalanzo2001 -p Saida<year><money>
 
 tag newly created image
-sudo docker tag newton nalanzo2001/newton
+sudo docker tag newton <image_name>
 
 create new container and run it (deletes on stopping)
-sudo docker run -it --rm -d -name <container_name> -p 80:80 nalanzo2001/newton bash
+sudo docker run -it --rm -d -name <container_name> -p 80:80 <image_name> bash
 
 stop container - TODO find how to delete container when stopped
 sudo docker container stop <container name>
 
 push image to docker hub
-sudo docker push nalanzo2001/newton
+sudo docker push <image_name>
 
-______________________________________________________________________
+___________________________________________________________________________________________
 KEY
-______________________________________________________________________
+___________________________________________________________________________________________
 
 -u username
 -p password
@@ -28,9 +31,24 @@ ______________________________________________________________________
 -d run container in background
 -p port mapping
 
+___________________________________________________________________________________________
+CONTAINER COMMANDS
+___________________________________________________________________________________________
+
 sudo docker container ls -a - List all containers
+sudo docker stop $(sudo docker ps -a -q) - stop all containers
 sudo docker rm $(sudo docker ps -a -q) - delete all containers
+
+___________________________________________________________________________________________
+IMAGE COMMANDS
+___________________________________________________________________________________________
+
 sudo docker image prune -a - delete all images without linked container
 sudo docker image ls - list all images
-sudo docker stop $(sudo docker ps -a -q) - stop all containers
+
+___________________________________________________________________________________________
+BASH SESSION
+___________________________________________________________________________________________
+
+sudo docker exec -it <container_name> bash
 ctrl-D - Exit container bash session
