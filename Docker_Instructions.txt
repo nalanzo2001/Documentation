@@ -11,7 +11,7 @@ tag newly created image
 sudo docker tag newton <image_name>
 
 create new container and run it (deletes on stopping)
-sudo docker run -it --rm -d -name <container_name> -p 80:80 <image_name> bash
+sudo docker run -it --rm -d --name <container_name> -p 8000:8000 <image_name> [optional] bash
 
 stop container - TODO find how to delete container when stopped
 sudo docker container stop <container name>
@@ -26,9 +26,9 @@ ________________________________________________________________________________
 -u username
 -p password
 -t tag image with name
--it create bash shell in the container
+-it create bash shell in the container, dont include -d with this command
 --rm remove the container when stopped
--d run container in background
+-d run container in background, wont open terminal
 -p port mapping
 
 ___________________________________________________________________________________________
@@ -37,6 +37,7 @@ ________________________________________________________________________________
 
 sudo docker container ls -a - List all containers
 sudo docker stop $(sudo docker ps -a -q) - stop all containers
+sudo docker rm --force <container_name> - force remove single container
 sudo docker rm $(sudo docker ps -a -q) - delete all containers
 
 ___________________________________________________________________________________________
