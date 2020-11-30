@@ -51,5 +51,6 @@ ________________________________________________________________________________
 BASH SESSION
 ___________________________________________________________________________________________
 
-sudo docker exec -it <container_name> bash
+sudo docker exec -it <container_name> bash - start a bash session for a container
 ctrl-D - Exit container bash session
+python manage.py diffsettings --all - run this from within a bash session to get all the django all settings
