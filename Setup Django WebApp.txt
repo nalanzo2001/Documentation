@@ -237,5 +237,18 @@ ________________________________________________________________________________
 5f) add: STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected') to prod settings file
 5g) run: python manage.py collectstatic
 
+___________________________________________________________________________________________________________________________________________________________________________
+6)  httpie - used to test web api calls
+*reference: 
+https://www.django-rest-framework.org/tutorial/quickstart/
+https://www.django-rest-framework.org/
+___________________________________________________________________________________________________________________________________________________________________________
+
+1) run - pip install djangorestframework
+2) run - pip install httpie
+3) run - http -a nalanzo2001:Saida1986$ http://127.0.0.1:8000/API/users/ - gets all users after logging in
+
+
+
 GOOD TO KNOW:
 *remove 1st line in manage.py file (#!/usr/bin/env python) in order for manage.py commands to work on windows
