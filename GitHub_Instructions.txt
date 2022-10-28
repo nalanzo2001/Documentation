@@ -21,19 +21,25 @@ Create a remote, empty folder/repository on Github.
 
 3) Click 'Create Repository'. !!!!!The next screen you see will be important, so don't close it.!!!!!
 
-4) git config --get remote.origin.url -> check current origin <repo>
-4a) type -> git remote add origin /path/to/origin.git
+4) type -> git config --get remote.origin.url           --> check the github repository you are working in. 
+										                    If nothing is returned your not connected to a repository
+4a) type -> git remote add origin <github repo url>     --> if above returns nothing then run this and connect to
+											                a repository <github repo url> = https://github.com/nalanzo2001/newtoncuff.git
+												 
 	If reusing a repository already used and message  = fatal: remote origin already exists.
 	THEN
-	git remote rm origin
-	git remote set-url origin <repo_url>
+	type -> git remote rm origin                         --> removes the origin from the current session
+	type -> git remote set-url origin <github repo url>  --> set a new origin for the current session i.e  <github repo url> = https://github.com/nalanzo2001/newtoncuff.git
 	
-5) git add .
-5a) git reset -> cancel all add commands
+5) git add -A (OR) git add .                             --> Stages all files in directory for checkin
+5a) git reset                                            --> cancels all staged directories and files
+5b) git reset <directory>/*                              --> unstages specific directory and all files
+5b) git reset <directory/filename>                       --> unstages specific file
 
-6) git commit -m "<message for commit>"
+6) git commit -m "<message for commit>"                  --> commit all stages files and directories with a message
 OR
-6a) git commit -a (this opens a text file so notes can be added for commit)
+6a) git commit -a                                        --> commit all stages files and directories and opens a text
+														 --> file so notes can be added for commit
 
 7) Login
 	$ git config --global user.email "nalanzo2001@gmail.com"
